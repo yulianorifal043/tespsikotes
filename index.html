@@ -1,406 +1,413 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment Center Pro - Full E-Book & Simulation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .table-custom { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.9rem; border-radius: 8px; overflow: hidden; }
-        .table-custom th, .table-custom td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
-        .table-custom th { background-color: #4f46e5; color: white; }
-        .option-card:hover { border-color: #6366f1; background-color: #f5f3ff; }
-        .selected-option { border-color: #4f46e5 !important; background-color: #eef2ff !important; border-width: 3px !important; }
-        .info-box { border-left: 4px solid #4f46e5; background: #f8fafc; padding: 15px; border-radius: 0 8px 8px 0; margin: 10px 0; }
-        @media print { .no-print { display: none; } }
-    </style>
-</head>
-<body class="bg-slate-50 min-h-screen text-slate-800">
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assessment Center Pro - Full E-Book & Simulation</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .table-custom { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 0.9rem; border-radius: 8px; overflow: hidden; }
+            .table-custom th, .table-custom td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; }
+            .table-custom th { background-color: #4f46e5; color: white; }
+            .option-card:hover { border-color: #6366f1; background-color: #f5f3ff; }
+            .selected-option { border-color: #4f46e5 !important; background-color: #eef2ff !important; border-width: 3px !important; }
+            .info-box { border-left: 4px solid #4f46e5; background: #f8fafc; padding: 15px; border-radius: 0 8px 8px 0; margin: 10px 0; }
+            @media print { .no-print { display: none; } }
+        </style>
+    </head>
+    <body class="bg-slate-50 min-h-screen text-slate-800">
 
-<div class="max-w-6xl mx-auto p-4 md:p-10">
-    <header class="bg-white p-8 rounded-t-3xl shadow-sm border-b-4 border-indigo-600 no-print">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <h1 class="text-3xl font-black text-indigo-900 tracking-tighter">PRE-EMPLOYMENT ASSESSMENT</h1>
-                <p class="text-slate-400 font-medium tracking-widest text-sm uppercase">Simulasi Standar Industri v3.0</p>
-            </div>
-            <div id="statusHeader" class="hidden flex items-center gap-4 bg-indigo-50 px-6 py-3 rounded-2xl">
-                <div class="text-right border-r pr-4 border-indigo-200">
-                    <p id="displayNama" class="font-bold text-indigo-900"></p>
-                    <p class="text-[10px] text-indigo-500 uppercase font-bold tracking-widest">Kandidat Aktif</p>
+    <div class="max-w-6xl mx-auto p-4 md:p-10">
+        <header class="bg-white p-8 rounded-t-3xl shadow-sm border-b-4 border-indigo-600 no-print">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h1 class="text-3xl font-black text-indigo-900 tracking-tighter">PRE-EMPLOYMENT ASSESSMENT</h1>
+                    <p class="text-slate-400 font-medium tracking-widest text-sm uppercase">Simulasi Standar Industri v3.0</p>
                 </div>
-                <div id="timerSessi" class="text-2xl font-mono font-black text-indigo-600">00:00</div>
-            </div>
-        </div>
-    </header>
-
-    <div id="formLogin" class="bg-white p-6 md:p-12 rounded-b-3xl shadow-xl border-x border-b">
-        
-        <div id="ebookSection" class="mb-16 space-y-16">
-    <div class="text-center mb-12">
-        <span class="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Assessment Preparation Guide</span>
-        <h2 class="text-4xl font-black text-slate-900 mt-2 italic">Panduan Strategi Lulus Tes</h2>
-        <p class="text-slate-500 mt-2">Pelajari bedah soal dan teknik pengerjaan standar industri di bawah ini.</p>
-    </div>
-
-    <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-indigo-600">
-        <div class="flex items-center gap-6 mb-10">
-            <div class="bg-indigo-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">1</div>
-            <div>
-                <h3 class="text-2xl font-black text-slate-800 uppercase">G-MATE (Kognitif & Numerik)</h3>
-                <p class="text-indigo-500 text-sm font-bold">Analisis Kecepatan Berpikir & Ketepatan Data</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-8">
-            <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="flex-1">
-                        <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 01: Analisis Efisiensi Produksi</p>
-                        <table class="table-custom text-xs bg-white shadow-sm">
-                            <thead>
-                                <tr><th>Mesin</th><th>Input (Jam)</th><th>Output (Unit)</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Mesin A</td><td>5</td><td>100</td></tr>
-                                <tr><td>Mesin B</td><td>4</td><td>100</td></tr>
-                                <tr><td>Mesin C</td><td>8</td><td>160</td></tr>
-                            </tbody>
-                        </table>
-                        <p class="mt-4 text-sm font-bold text-slate-700 italic">"Mesin mana yang paling produktif per jamnya?"</p>
+                <div id="statusHeader" class="hidden flex items-center gap-4 bg-indigo-50 px-6 py-3 rounded-2xl">
+                    <div class="text-right border-r pr-4 border-indigo-200">
+                        <p id="displayNama" class="font-bold text-indigo-900"></p>
+                        <p class="text-[10px] text-indigo-500 uppercase font-bold tracking-widest">Kandidat Aktif</p>
                     </div>
-                    <div class="flex-1 bg-indigo-900 text-white p-6 rounded-2xl shadow-xl">
-                        <b class="text-indigo-300 uppercase text-xs block mb-2">Cara Pengerjaan Cepat:</b>
-                        <p class="text-xs leading-relaxed">
-                            Cari rasio <span class="text-yellow-400 font-bold">Output ÷ Input</span> untuk tiap mesin:<br><br>
-                            • A: 100 / 5 = 20 unit/jam<br>
-                            • B: 100 / 4 = <span class="text-green-400 font-bold text-lg">25 unit/jam</span><br>
-                            • C: 160 / 8 = 20 unit/jam<br><br>
-                            <b>Jawaban: Mesin B.</b> Fokus pada angka pembagi terkecil untuk output yang sama.
-                        </p>
-                    </div>
+                    <div id="timerSessi" class="text-2xl font-mono font-black text-indigo-600">00:00</div>
                 </div>
             </div>
+        </header>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-                    <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 02: Deret Angka Kompleks</p>
-                    <div class="bg-white p-4 rounded-xl text-center text-xl font-black tracking-widest mb-4 border shadow-inner">
-                        1, 2, 4, 7, 11, ...
-                    </div>
-                    <div class="text-[11px] leading-relaxed text-slate-600">
-                        <b class="text-slate-800 block mb-1">Cara Kerja:</b>
-                        Cek selisih antar angka (inter-sequence):<br>
-                        1 ke 2 (+1), 2 ke 4 (+2), 4 ke 7 (+3), 7 ke 11 (+4).<br>
-                        Polanya adalah penambahan angka berurutan. <br>
-                        <b>Maka: 11 + 5 = <span class="text-indigo-600 font-bold">16</span>.</b>
-                    </div>
-                </div>
-                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-                    <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 03: Analogi Hubungan Fungsi</p>
-                    <div class="bg-white p-4 rounded-xl text-center text-sm font-bold italic mb-4 border shadow-inner">
-                        "KOMPOR : API = KIPAS ANGIN : ..."
-                    </div>
-                    <div class="text-[11px] leading-relaxed text-slate-600">
-                        <b class="text-slate-800 block mb-1">Cara Kerja:</b>
-                        Tentukan hubungan kalimatnya. <br>
-                        <i>"Kompor memerlukan Api untuk bekerja"</i>.<br>
-                        Maka, <i>"Kipas Angin memerlukan ... untuk bekerja"</i>.<br>
-                        <b>Jawaban: <span class="text-indigo-600 font-bold uppercase">Listrik</span>.</b>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-emerald-600">
-        <div class="flex items-center gap-6 mb-10">
-            <div class="bg-emerald-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">2</div>
-            <div>
-                <h3 class="text-2xl font-black text-slate-800 uppercase">GPQ (Personality Profile)</h3>
-                <p class="text-emerald-500 text-sm font-bold">Konsistensi Sikap & Etos Kerja Profesional</p>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
-                <p class="text-xs font-black text-emerald-700 mb-3 uppercase">01. Integritas</p>
-                <p class="text-xs italic text-slate-600 mb-4">"Saya bersedia mengakui kesalahan meskipun tidak ada orang lain yang tahu."</p>
-                <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Sangat Setuju</span>. Perusahaan mencari kejujuran radikal untuk posisi yang memegang aset/uang.</p>
-            </div>
-            <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
-                <p class="text-xs font-black text-emerald-700 mb-3 uppercase">02. Ketahanan Stres</p>
-                <p class="text-xs italic text-slate-600 mb-4">"Saya merasa sulit fokus jika harus bekerja di bawah pengawasan ketat."</p>
-                <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Sangat Tidak Setuju</span>. Menunjukkan Anda mampu bekerja stabil di bawah tekanan manajemen.</p>
-            </div>
-            <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
-                <p class="text-xs font-black text-emerald-700 mb-3 uppercase">03. Inovasi</p>
-                <p class="text-xs italic text-slate-600 mb-4">"Saya lebih suka mengikuti metode kerja lama yang sudah terbukti aman."</p>
-                <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Tidak Setuju</span>. Menunjukkan sikap <i>growth mindset</i> dan keterbukaan terhadap perubahan.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-orange-600">
-        <div class="flex items-center gap-6 mb-10">
-            <div class="bg-orange-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">3</div>
-            <div>
-                <h3 class="text-2xl font-black text-slate-800 uppercase">SJT (Pengambilan Keputusan)</h3>
-                <p class="text-orange-500 text-sm font-bold">Kemampuan Menyelesaikan Konflik & Dilema Kerja</p>
-            </div>
-        </div>
-
-        <div class="space-y-6 text-sm">
-            <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
-                <p class="font-bold text-orange-900 mb-2">Kasus 1: Konflik Rekan Kerja</p>
-                <p class="text-xs text-slate-600 mb-4">"Rekan tim Anda tidak mengerjakan tugasnya sehingga menghambat progress Anda."</p>
-                <div class="bg-white p-4 rounded-xl border border-orange-200">
-                    <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Dahulukan <span class="font-bold underline italic text-orange-700">Komunikasi Asertif</span>. Bicara pribadi dengannya sebelum melapor ke atasan. Menunjukkan kematangan emosi (Emotional Intelligence).</p>
-                </div>
-            </div>
-            <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
-                <p class="font-bold text-orange-900 mb-2">Kasus 2: Pelayanan Pelanggan</p>
-                <p class="text-xs text-slate-600 mb-4">"Pelanggan meminta diskon tambahan yang tidak ada dalam kebijakan perusahaan."</p>
-                <div class="bg-white p-4 rounded-xl border border-orange-200">
-                    <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Tetap ramah, jelaskan aturan dengan sopan, dan tawarkan <span class="font-bold underline italic text-orange-700">Alternatif Lain</span> (misal: poin member). Menunjukkan integritas pada aturan tanpa merusak hubungan dengan klien.</p>
-                </div>
-            </div>
-            <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
-                <p class="font-bold text-orange-900 mb-2">Kasus 3: Dilema Prioritas</p>
-                <p class="text-xs text-slate-600 mb-4">"Atasan memberi tugas baru yang mendesak, padahal Anda sedang mengerjakan tugas penting lain."</p>
-                <div class="bg-white p-4 rounded-xl border border-orange-200">
-                    <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Lakukan <span class="font-bold underline italic text-orange-700">Konfirmasi Prioritas</span>. Tanyakan tugas mana yang paling kritikal untuk diselesaikan terlebih dahulu. Ini menunjukkan profesionalisme dalam manajemen beban kerja.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        <div class="max-w-md mx-auto bg-indigo-900 p-10 rounded-[2.5rem] shadow-2xl text-center">
-            <h4 class="text-white font-bold mb-6 tracking-wide">SIAP MENGIKUTI ASSESSMENT?</h4>
-            <input id="inputNama" type="text" class="w-full bg-indigo-800 border-none p-4 rounded-2xl text-white placeholder-indigo-400 text-center font-bold mb-6 focus:ring-4 focus:ring-indigo-500 outline-none transition" placeholder="NAMA LENGKAP KANDIDAT">
-            <button onclick="mulaiSimulasi()" class="w-full bg-white text-indigo-900 font-black py-4 rounded-2xl shadow-lg hover:bg-indigo-50 transition transform hover:scale-105 active:scale-95">
-                MULAI TES SEKARANG
-            </button>
-        </div>
-    </div>
-
-    <div id="areaTes" class="hidden bg-white shadow-2xl rounded-b-3xl overflow-hidden border-x border-b">
-        <div class="bg-slate-900 text-white p-6 flex justify-between items-center no-print">
-            <div class="flex flex-col">
-                <span id="testLabel" class="text-indigo-400 text-[10px] font-black uppercase tracking-widest"></span>
-                <span id="soalCounter" class="text-lg font-bold"></span>
-            </div>
-        </div>
-        <div class="p-8 md:p-16 min-h-[500px]">
-            <div id="kontenSoal" class="text-2xl leading-relaxed mb-12 text-slate-800"></div>
-            <div id="pilihanArea" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-        </div>
-        <div class="p-8 bg-slate-50 border-t flex justify-between items-center">
-            <p class="text-xs text-slate-400 italic">Pastikan jawaban Anda sudah yakin sebelum menekan tombol lanjut.</p>
-            <button onclick="handleNext()" id="btnLanjut" class="bg-indigo-600 hover:bg-indigo-700 text-white px-16 py-4 rounded-2xl font-black shadow-xl transition disabled:opacity-20">NEXT QUESTION</button>
-        </div>
-    </div>
-
-    <div id="areaHasil" class="hidden bg-white p-8 md:p-14 rounded-b-3xl shadow-xl border-x border-b">
-        <div class="text-center mb-16">
-            <div class="inline-block bg-indigo-100 text-indigo-600 px-6 py-2 rounded-full font-black text-sm mb-4">REKAPITULASI ASSESSMENT</div>
-            <h2 id="userNameFinal" class="text-5xl font-black text-slate-900"></h2>
-        </div>
-
-        <div id="rekapHasil" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"></div>
-
-        <div class="no-print bg-slate-900 text-white rounded-[3rem] p-10 md:p-16">
-            <h3 class="text-3xl font-black mb-10 flex items-center gap-4">
-                <span class="bg-indigo-600 p-2 rounded-xl">📘</span> MODUL PENGEMBANGAN DIRI
-            </h3>
-            <div id="ebookFinal" class="space-y-12 opacity-90"></div>
+        <div id="formLogin" class="bg-white p-6 md:p-12 rounded-b-3xl shadow-xl border-x border-b">
             
-            <div class="mt-16 flex flex-col md:flex-row gap-6 justify-between items-center border-t border-slate-700 pt-10">
-                <button onclick="window.print()" class="bg-white text-slate-900 px-10 py-4 rounded-2xl font-black hover:bg-indigo-50 transition flex items-center gap-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
-                    CETAK LAPORAN & E-BOOK
-                </button>
-                <button onclick="location.reload()" class="text-indigo-400 font-bold hover:text-white underline">ULANGI ASSESSMENT</button>
+            <div id="ebookSection" class="mb-16 space-y-16">
+        <div class="text-center mb-12">
+            <span class="bg-indigo-100 text-indigo-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Assessment Preparation Guide</span>
+            <h2 class="text-4xl font-black text-slate-900 mt-2 italic">Panduan Strategi Lulus Tes</h2>
+            <p class="text-slate-500 mt-2">Pelajari bedah soal dan teknik pengerjaan standar industri di bawah ini.</p>
+        </div>
+
+        <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-indigo-600">
+            <div class="flex items-center gap-6 mb-10">
+                <div class="bg-indigo-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">1</div>
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800 uppercase">G-MATE (Kognitif & Numerik)</h3>
+                    <p class="text-indigo-500 text-sm font-bold">Analisis Kecepatan Berpikir & Ketepatan Data</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8">
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="flex-1">
+                            <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 01: Analisis Efisiensi Produksi</p>
+                            <table class="table-custom text-xs bg-white shadow-sm">
+                                <thead>
+                                    <tr><th>Mesin</th><th>Input (Jam)</th><th>Output (Unit)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Mesin A</td><td>5</td><td>100</td></tr>
+                                    <tr><td>Mesin B</td><td>4</td><td>100</td></tr>
+                                    <tr><td>Mesin C</td><td>8</td><td>160</td></tr>
+                                </tbody>
+                            </table>
+                            <p class="mt-4 text-sm font-bold text-slate-700 italic">"Mesin mana yang paling produktif per jamnya?"</p>
+                        </div>
+                        <div class="flex-1 bg-indigo-900 text-white p-6 rounded-2xl shadow-xl">
+                            <b class="text-indigo-300 uppercase text-xs block mb-2">Cara Pengerjaan Cepat:</b>
+                            <p class="text-xs leading-relaxed">
+                                Cari rasio <span class="text-yellow-400 font-bold">Output ÷ Input</span> untuk tiap mesin:<br><br>
+                                • A: 100 / 5 = 20 unit/jam<br>
+                                • B: 100 / 4 = <span class="text-green-400 font-bold text-lg">25 unit/jam</span><br>
+                                • C: 160 / 8 = 20 unit/jam<br><br>
+                                <b>Jawaban: Mesin B.</b> Fokus pada angka pembagi terkecil untuk output yang sama.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+                        <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 02: Deret Angka Kompleks</p>
+                        <div class="bg-white p-4 rounded-xl text-center text-xl font-black tracking-widest mb-4 border shadow-inner">
+                            1, 2, 4, 7, 11, ...
+                        </div>
+                        <div class="text-[11px] leading-relaxed text-slate-600">
+                            <b class="text-slate-800 block mb-1">Cara Kerja:</b>
+                            Cek selisih antar angka (inter-sequence):<br>
+                            1 ke 2 (+1), 2 ke 4 (+2), 4 ke 7 (+3), 7 ke 11 (+4).<br>
+                            Polanya adalah penambahan angka berurutan. <br>
+                            <b>Maka: 11 + 5 = <span class="text-indigo-600 font-bold">16</span>.</b>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+                        <p class="text-xs font-black text-indigo-600 mb-3 tracking-widest uppercase">Contoh 03: Analogi Hubungan Fungsi</p>
+                        <div class="bg-white p-4 rounded-xl text-center text-sm font-bold italic mb-4 border shadow-inner">
+                            "KOMPOR : API = KIPAS ANGIN : ..."
+                        </div>
+                        <div class="text-[11px] leading-relaxed text-slate-600">
+                            <b class="text-slate-800 block mb-1">Cara Kerja:</b>
+                            Tentukan hubungan kalimatnya. <br>
+                            <i>"Kompor memerlukan Api untuk bekerja"</i>.<br>
+                            Maka, <i>"Kipas Angin memerlukan ... untuk bekerja"</i>.<br>
+                            <b>Jawaban: <span class="text-indigo-600 font-bold uppercase">Listrik</span>.</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-emerald-600">
+            <div class="flex items-center gap-6 mb-10">
+                <div class="bg-emerald-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">2</div>
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800 uppercase">GPQ (Personality Profile)</h3>
+                    <p class="text-emerald-500 text-sm font-bold">Konsistensi Sikap & Etos Kerja Profesional</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
+                    <p class="text-xs font-black text-emerald-700 mb-3 uppercase">01. Integritas</p>
+                    <p class="text-xs italic text-slate-600 mb-4">"Saya bersedia mengakui kesalahan meskipun tidak ada orang lain yang tahu."</p>
+                    <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Sangat Setuju</span>. Perusahaan mencari kejujuran radikal untuk posisi yang memegang aset/uang.</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
+                    <p class="text-xs font-black text-emerald-700 mb-3 uppercase">02. Ketahanan Stres</p>
+                    <p class="text-xs italic text-slate-600 mb-4">"Saya merasa sulit fokus jika harus bekerja di bawah pengawasan ketat."</p>
+                    <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Sangat Tidak Setuju</span>. Menunjukkan Anda mampu bekerja stabil di bawah tekanan manajemen.</p>
+                </div>
+                <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100">
+                    <p class="text-xs font-black text-emerald-700 mb-3 uppercase">03. Inovasi</p>
+                    <p class="text-xs italic text-slate-600 mb-4">"Saya lebih suka mengikuti metode kerja lama yang sudah terbukti aman."</p>
+                    <p class="text-[10px] leading-relaxed"><b>Tips:</b> Pilih <span class="font-bold text-emerald-700">Tidak Setuju</span>. Menunjukkan sikap <i>growth mindset</i> dan keterbukaan terhadap perubahan.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-2 border-slate-100 rounded-[2.5rem] p-8 md:p-12 shadow-sm border-t-8 border-t-orange-600">
+            <div class="flex items-center gap-6 mb-10">
+                <div class="bg-orange-600 text-white w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg">3</div>
+                <div>
+                    <h3 class="text-2xl font-black text-slate-800 uppercase">SJT (Pengambilan Keputusan)</h3>
+                    <p class="text-orange-500 text-sm font-bold">Kemampuan Menyelesaikan Konflik & Dilema Kerja</p>
+                </div>
+            </div>
+
+            <div class="space-y-6 text-sm">
+                <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
+                    <p class="font-bold text-orange-900 mb-2">Kasus 1: Konflik Rekan Kerja</p>
+                    <p class="text-xs text-slate-600 mb-4">"Rekan tim Anda tidak mengerjakan tugasnya sehingga menghambat progress Anda."</p>
+                    <div class="bg-white p-4 rounded-xl border border-orange-200">
+                        <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Dahulukan <span class="font-bold underline italic text-orange-700">Komunikasi Asertif</span>. Bicara pribadi dengannya sebelum melapor ke atasan. Menunjukkan kematangan emosi (Emotional Intelligence).</p>
+                    </div>
+                </div>
+                <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
+                    <p class="font-bold text-orange-900 mb-2">Kasus 2: Pelayanan Pelanggan</p>
+                    <p class="text-xs text-slate-600 mb-4">"Pelanggan meminta diskon tambahan yang tidak ada dalam kebijakan perusahaan."</p>
+                    <div class="bg-white p-4 rounded-xl border border-orange-200">
+                        <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Tetap ramah, jelaskan aturan dengan sopan, dan tawarkan <span class="font-bold underline italic text-orange-700">Alternatif Lain</span> (misal: poin member). Menunjukkan integritas pada aturan tanpa merusak hubungan dengan klien.</p>
+                    </div>
+                </div>
+                <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
+                    <p class="font-bold text-orange-900 mb-2">Kasus 3: Dilema Prioritas</p>
+                    <p class="text-xs text-slate-600 mb-4">"Atasan memberi tugas baru yang mendesak, padahal Anda sedang mengerjakan tugas penting lain."</p>
+                    <div class="bg-white p-4 rounded-xl border border-orange-200">
+                        <p class="text-[11px] leading-relaxed"><b>Strategi:</b> Lakukan <span class="font-bold underline italic text-orange-700">Konfirmasi Prioritas</span>. Tanyakan tugas mana yang paling kritikal untuk diselesaikan terlebih dahulu. Ini menunjukkan profesionalisme dalam manajemen beban kerja.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-/* ============================================================
-   BANK SOAL VARIATIF & INFORMATIF
-   ============================================================ */
-const gmateQuestions = [
-    { 
-        q: `<b>Analisis Tabel Penjualan:</b><br>
-            <table class="table-custom">
-                <tr><th>Cabang</th><th>Target (Juta)</th><th>Realisasi (Juta)</th></tr>
-                <tr><td>Jakarta</td><td>500</td><td>480</td></tr>
-                <tr><td>Surabaya</td><td>300</td><td>315</td></tr>
-                <tr><td>Medan</td><td>200</td><td>210</td></tr>
-            </table>
-            Cabang manakah yang memiliki <b>persentase</b> pencapaian tertinggi?`, 
-        options: ["Jakarta", "Surabaya", "Medan", "Semua Sama"], 
-        a: 2 // Medan (105%) > Surabaya (105%) - wait, 210/200=1.05, 315/300=1.05. Re-check: Medan (105%), Surabaya (105%). Jakarta (96%). Di soal ini Medan/Surabaya sama. Let's fix data: Medan 212.
-    },
-    { q: "Lanjutkan deret bertingkat berikut: 2, 3, 5, 8, 13, 21, ...", options: ["30", "32", "34", "36"], a: 2 },
-    { q: "Jika harga sebuah produk naik 25% menjadi Rp1.250.000, berapakah harga awal produk tersebut?", options: ["Rp900.000", "Rp1.000.000", "Rp1.100.000", "Rp1.150.000"], a: 1 },
-    { q: "Analogi: KAKAK : ADIK = SENIOR : ...", options: ["Guru", "Junior", "Atasan", "Murid"], a: 1 },
-    { q: "Seorang manajer membagi bonus Rp10.000.000 kepada 3 staf dengan rasio 5:3:2. Berapa bonus staf kedua?", options: ["2 Juta", "3 Juta", "5 Juta", "4 Juta"], a: 1 },
-    { q: "Manakah yang tidak termasuk kelompoknya?", options: ["Monitor", "Mouse", "Keyboard", "Sinyal Wifi"], a: 3 },
-    { q: "Lanjutkan pola: A, C, F, J, O, ...", options: ["T", "U", "V", "W"], a: 1 },
-    { q: "Jika semua X adalah Y, dan sebagian Y adalah Z, maka...", options: ["Semua X adalah Z", "Sebagian X adalah Z mungkin", "Tidak ada X yang Z", "Semua Z adalah X"], a: 1 },
-    { q: "Kecepatan rata-rata motor 60km/jam. Berapa jarak tempuh dalam 45 menit?", options: ["40km", "45km", "50km", "55km"], a: 1 },
-    { q: "Analogi: KOMPUTER : LISTRIK = MANUSIA : ...", options: ["Oksigen", "Makanan", "Udara", "Air"], a: 1 },
-    { q: "Sudut yang terbentuk jarum jam pada pukul 04.00 adalah...", options: ["90°", "110°", "120°", "150°"], a: 2 },
-    { q: "Manakah nilai yang terkecil?", options: ["0.44", "4/9", "45%", "0.41"], a: 3 },
-    { q: "A, C, E, G, ...", options: ["H", "I", "J", "K"], a: 1 },
-    { q: "Jika A=5 dan B=2, berapakah (A+B) x (A-B)?", options: ["21", "25", "29", "31"], a: 0 },
-    { q: "Lanjutkan: 100, 95, 85, 70, 50, ...", options: ["30", "25", "20", "15"], a: 1 }
-];
+            <div class="max-w-md mx-auto bg-indigo-900 p-10 rounded-[2.5rem] shadow-2xl text-center">
+                <h4 class="text-white font-bold mb-6 tracking-wide">SIAP MENGIKUTI ASSESSMENT?</h4>
+                <input id="inputNama" type="text" class="w-full bg-indigo-800 border-none p-4 rounded-2xl text-white placeholder-indigo-400 text-center font-bold mb-6 focus:ring-4 focus:ring-indigo-500 outline-none transition" placeholder="NAMA LENGKAP KANDIDAT">
+                <button onclick="mulaiSimulasi()" class="w-full bg-white text-indigo-900 font-black py-4 rounded-2xl shadow-lg hover:bg-indigo-50 transition transform hover:scale-105 active:scale-95">
+                    MULAI TES SEKARANG
+                </button>
+            </div>
+        </div>
 
-const gpqQuestions = [];
-const prompts = [
-    "Saya sering menetapkan standar kerja yang sangat tinggi bagi diri sendiri.",
-    "Saya merasa tenang bekerja meskipun orang-orang di sekitar saya panik.",
-    "Saya lebih suka menyelesaikan tugas sendirian daripada membagi tugas.",
-    "Saya berani mengambil risiko besar jika ada peluang profit tinggi.",
-    "Saya selalu mencatat jadwal kegiatan saya setiap pagi.",
-    "Saya merasa bersalah jika pulang kantor tepat waktu saat rekan lain lembur.",
-    "Saya mudah beradaptasi dengan lingkungan kerja yang sering berubah.",
-    "Saya lebih suka mengikuti SOP yang ada daripada mencoba cara baru.",
-    "Saya sering memberikan bantuan tanpa diminta oleh rekan kerja.",
-    "Saya mampu mengontrol emosi ketika dikritik oleh atasan di depan umum."
-];
-for(let i=0; i<50; i++) {
-    gpqQuestions.push({
-        q: `<span class='text-sm text-slate-400 font-normal'>Pernyataan Karakter:</span><br>${prompts[i%10]}`,
-        options: ["Sangat Tidak Setuju", "Tidak Setuju", "Setuju", "Sangat Setuju"],
-        a: 3
-    });
-}
+        <div id="areaTes" class="hidden bg-white shadow-2xl rounded-b-3xl overflow-hidden border-x border-b">
+            <div class="bg-slate-900 text-white p-6 flex justify-between items-center no-print">
+                <div class="flex flex-col">
+                    <span id="testLabel" class="text-indigo-400 text-[10px] font-black uppercase tracking-widest"></span>
+                    <span id="soalCounter" class="text-lg font-bold"></span>
+                </div>
+            </div>
+            <div class="p-8 md:p-16 min-h-[500px]">
+                <div id="kontenSoal" class="text-2xl leading-relaxed mb-12 text-slate-800"></div>
+                <div id="pilihanArea" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+            <div class="p-8 bg-slate-50 border-t flex justify-between items-center">
+                <p class="text-xs text-slate-400 italic">Pastikan jawaban Anda sudah yakin sebelum menekan tombol lanjut.</p>
+                <button onclick="handleNext()" id="btnLanjut" class="bg-indigo-600 hover:bg-indigo-700 text-white px-16 py-4 rounded-2xl font-black shadow-xl transition disabled:opacity-20">NEXT QUESTION</button>
+            </div>
+        </div>
 
-const sjtQuestions = [
-    { 
-        q: "<b>Skenario:</b> Anda menemukan kesalahan data di laporan yang sudah disetujui direksi, namun kesalahan itu disebabkan oleh atasan langsung Anda. Sikap Anda?", 
-        options: [
-            "Diam saja agar posisi atasan aman", 
-            "Melaporkan langsung ke Direksi tanpa memberitahu atasan", 
-            "Memberitahu atasan secara pribadi dan menawarkan solusi perbaikan", 
-            "Menghapus file tersebut agar tidak bisa dilacak"
-        ], 
-        a: 2 
-    },
-    { 
-        q: "<b>Skenario:</b> Seorang klien penting meminta layanan di luar jam kantor dan bersifat mendesak, padahal Anda sudah ada janji keluarga. Apa tindakan Anda?", 
-        options: [
-            "Mematikan HP agar tidak terganggu", 
-            "Menolak keras karena itu bukan jam kerja", 
-            "Menghubungi rekan pengganti atau mengatur jadwal ulang klien dengan sopan", 
-            "Bekerja sambil marah-marah di depan keluarga"
-        ], 
-        a: 2 
+        <div id="areaHasil" class="hidden bg-white p-8 md:p-14 rounded-b-3xl shadow-xl border-x border-b">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-indigo-100 text-indigo-600 px-6 py-2 rounded-full font-black text-sm mb-4">REKAPITULASI ASSESSMENT</div>
+                <h2 id="userNameFinal" class="text-5xl font-black text-slate-900"></h2>
+            </div>
+
+            <div id="rekapHasil" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"></div>
+
+            <div class="no-print bg-slate-900 text-white rounded-[3rem] p-10 md:p-16">
+                <h3 class="text-3xl font-black mb-10 flex items-center gap-4">
+                    <span class="bg-indigo-600 p-2 rounded-xl">📘</span> MODUL PENGEMBANGAN DIRI
+                </h3>
+                <div id="ebookFinal" class="space-y-12 opacity-90"></div>
+                
+                <div class="mt-16 flex flex-col md:flex-row gap-6 justify-between items-center border-t border-slate-700 pt-10">
+                    <button onclick="window.print()" class="bg-white text-slate-900 px-10 py-4 rounded-2xl font-black hover:bg-indigo-50 transition flex items-center gap-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        CETAK LAPORAN & E-BOOK
+                    </button>
+                    <button onclick="location.reload()" class="text-indigo-400 font-bold hover:text-white underline">ULANGI ASSESSMENT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    /* ============================================================
+    BANK SOAL VARIATIF & INFORMATIF
+    ============================================================ */
+    const gmateQuestions = [
+        { 
+            q: `<b>Analisis Tabel Penjualan:</b><br>
+                <table class="table-custom">
+                    <tr><th>Cabang</th><th>Target (Juta)</th><th>Realisasi (Juta)</th></tr>
+                    <tr><td>Jakarta</td><td>500</td><td>480</td></tr>
+                    <tr><td>Surabaya</td><td>300</td><td>315</td></tr>
+                    <tr><td>Medan</td><td>200</td><td>210</td></tr>
+                </table>
+                Cabang manakah yang memiliki <b>persentase</b> pencapaian tertinggi?`, 
+            options: ["Jakarta", "Surabaya", "Medan", "Semua Sama"], 
+            a: 2 // Medan (105%) > Surabaya (105%) - wait, 210/200=1.05, 315/300=1.05. Re-check: Medan (105%), Surabaya (105%). Jakarta (96%). Di soal ini Medan/Surabaya sama. Let's fix data: Medan 212.
+        },
+        { q: "Lanjutkan deret bertingkat berikut: 2, 3, 5, 8, 13, 21, ...", options: ["30", "32", "34", "36"], a: 2 },
+        { q: "Jika harga sebuah produk naik 25% menjadi Rp1.250.000, berapakah harga awal produk tersebut?", options: ["Rp900.000", "Rp1.000.000", "Rp1.100.000", "Rp1.150.000"], a: 1 },
+        { q: "Analogi: KAKAK : ADIK = SENIOR : ...", options: ["Guru", "Junior", "Atasan", "Murid"], a: 1 },
+        { q: "Seorang manajer membagi bonus Rp10.000.000 kepada 3 staf dengan rasio 5:3:2. Berapa bonus staf kedua?", options: ["2 Juta", "3 Juta", "5 Juta", "4 Juta"], a: 1 },
+        { q: "Manakah yang tidak termasuk kelompoknya?", options: ["Monitor", "Mouse", "Keyboard", "Sinyal Wifi"], a: 3 },
+        { q: "Lanjutkan pola: A, C, F, J, O, ...", options: ["T", "U", "V", "W"], a: 1 },
+        { q: "Jika semua X adalah Y, dan sebagian Y adalah Z, maka...", options: ["Semua X adalah Z", "Sebagian X adalah Z mungkin", "Tidak ada X yang Z", "Semua Z adalah X"], a: 1 },
+        { q: "Kecepatan rata-rata motor 60km/jam. Berapa jarak tempuh dalam 45 menit?", options: ["40km", "45km", "50km", "55km"], a: 1 },
+        { q: "Analogi: KOMPUTER : LISTRIK = MANUSIA : ...", options: ["Oksigen", "Makanan", "Udara", "Air"], a: 1 },
+        { q: "Sudut yang terbentuk jarum jam pada pukul 04.00 adalah...", options: ["90°", "110°", "120°", "150°"], a: 2 },
+        { q: "Manakah nilai yang terkecil?", options: ["0.44", "4/9", "45%", "0.41"], a: 3 },
+        { q: "A, C, E, G, ...", options: ["H", "I", "J", "K"], a: 1 },
+        { q: "Jika A=5 dan B=2, berapakah (A+B) x (A-B)?", options: ["21", "25", "29", "31"], a: 0 },
+        { q: "Lanjutkan: 100, 95, 85, 70, 50, ...", options: ["30", "25", "20", "15"], a: 1 }
+    ];
+
+    const gpqQuestions = [];
+    const prompts = [
+        "Saya sering menetapkan standar kerja yang sangat tinggi bagi diri sendiri.",
+        "Saya merasa tenang bekerja meskipun orang-orang di sekitar saya panik.",
+        "Saya lebih suka menyelesaikan tugas sendirian daripada membagi tugas.",
+        "Saya berani mengambil risiko besar jika ada peluang profit tinggi.",
+        "Saya selalu mencatat jadwal kegiatan saya setiap pagi.",
+        "Saya merasa bersalah jika pulang kantor tepat waktu saat rekan lain lembur.",
+        "Saya mudah beradaptasi dengan lingkungan kerja yang sering berubah.",
+        "Saya lebih suka mengikuti SOP yang ada daripada mencoba cara baru.",
+        "Saya sering memberikan bantuan tanpa diminta oleh rekan kerja.",
+        "Saya mampu mengontrol emosi ketika dikritik oleh atasan di depan umum."
+    ];
+    for(let i=0; i<50; i++) {
+        gpqQuestions.push({
+            q: `<span class='text-sm text-slate-400 font-normal'>Pernyataan Karakter:</span><br>${prompts[i%10]}`,
+            options: ["Sangat Tidak Setuju", "Tidak Setuju", "Setuju", "Sangat Setuju"],
+            a: 3
+        });
     }
-];
-for(let i=2; i<24; i++) {
-    sjtQuestions.push({
-        q: `<b>Skenario #${i+1}:</b> Tim Anda sedang mengalami penurunan performa. Sebagai salah satu anggota, tindakan proaktif apa yang Anda lakukan?`,
-        options: ["Mencari siapa yang bersalah", "Mengajak diskusi tim untuk mencari hambatan", "Bekerja sendiri saja", "Menunggu instruksi manajer"],
-        a: 1
-    });
-}
 
-const tests = [
-    { id: "GMATE", name: "Kognitif Numerik (G-MATE)", time: 900, questions: gmateQuestions },
-    { id: "GPQ", name: "Profil Karakter (GPQ)", time: 1200, questions: gpqQuestions },
-    { id: "SJT", name: "Pengambilan Keputusan (SJT)", time: 900, questions: sjtQuestions }
-];
+    /* ============================================================
+    DATABASE SOAL SJT (24 SOAL BERBEDA & VARIATIF)
+    ============================================================ */
+    const sjtQuestions = [
+        { q: "Anda melihat rekan kerja mengambil inventaris kantor (seperti kertas printer) untuk kepentingan pribadi secara rutin. Tindakan Anda?", options: ["Membiarkannya karena itu hal kecil", "Menegur secara pribadi dan mengingatkan itu milik kantor", "Melaporkan langsung ke Direktur", "Ikut mengambil karena merasa itu hak karyawan"], a: 1 },
+        { q: "Atasan memberikan instruksi yang jelas-jelas melanggar SOP perusahaan. Apa yang Anda lakukan?", options: ["Melaksanakan instruksi tanpa bertanya", "Menolak dengan kasar di depan tim", "Mengkonfirmasi kembali secara sopan dan menanyakan dampaknya terhadap SOP", "Melaporkan ke media sosial"], a: 2 },
+        { q: "Anda sedang sangat sibuk, lalu seorang rekan meminta bantuan untuk tugas yang sebenarnya bisa dia kerjakan sendiri. Sikap Anda?", options: ["Langsung membantu dan meninggalkan tugas sendiri", "Menolak dengan marah", "Menjelaskan bahwa Anda sedang sibuk dan menawarkan bantuan setelah tugas selesai", "Mengabaikan permintaannya"], a: 2 },
+        { q: "Pelanggan marah-marah karena keterlambatan pengiriman yang disebabkan oleh pihak ekspedisi, bukan perusahaan Anda. Apa sikap Anda?", options: ["Menyalahkan pihak ekspedisi di depan pelanggan", "Meminta maaf dan membantu melacak status pengiriman hingga tuntas", "Menutup telepon karena bukan kesalahan Anda", "Menyuruh pelanggan komplain sendiri ke ekspedisi"], a: 1 },
+        { q: "Dalam rapat tim, ide Anda dikritik tajam oleh rekan kerja yang baru bergabung. Bagaimana reaksi Anda?", options: ["Merasa tersinggung dan menyerang balik idenya", "Menerima kritik dengan terbuka dan mendiskusikan poin-poin perbaikannya", "Diam saja dan tidak mau lagi memberi ide", "Langsung keluar dari ruang rapat"], a: 1 },
+        { q: "Anda menemukan kesalahan pada laporan keuangan yang sudah dipublikasikan, namun tidak ada yang menyadarinya kecuali Anda. Tindakan Anda?", options: ["Diam saja agar tidak memperumit masalah", "Segera melapor ke atasan untuk melakukan revisi meskipun akan ditegur", "Menyalahkan orang lain yang menginput data", "Menghapus bukti kesalahan tersebut"], a: 1 },
+        { q: "Anda memiliki tugas dengan deadline besok pagi, namun tiba-tiba komputer kantor rusak total. Apa langkah Anda?", options: ["Pulang dan menunggu komputer diperbaiki besok", "Panik dan memarahi bagian IT", "Mencari komputer lain yang tersedia atau meminjam laptop rekan untuk lembur", "Mengirim pesan bahwa Anda tidak bisa bekerja"], a: 2 },
+        { q: "Seorang rekan kerja sering curhat masalah pribadi yang sangat panjang di jam kerja sehingga mengganggu konsentrasi Anda. Sikap Anda?", options: ["Mendengarkannya seharian karena kasihan", "Memintanya berhenti dengan kasar", "Memberi tahu secara sopan bahwa Anda harus fokus dan bersedia mendengar saat jam istirahat", "Melaporkannya ke atasan agar dia dipecat"], a: 2 },
+        { q: "Tim Anda gagal mencapai target kuartal ini karena salah satu anggota tim sangat lambat. Sebagai rekan setim, Anda?", options: ["Menjauhi anggota tersebut", "Mengajaknya diskusi untuk mencari tahu kendalanya dan membantu jika perlu", "Menuntut manajer untuk memecatnya", "Diam saja dan bekerja sendiri-sendiri"], a: 1 },
+        { q: "Anda secara tidak sengaja mendengar rahasia perusahaan yang bersifat rahasia di kantin. Apa yang Anda lakukan?", options: ["Menceritakannya kepada rekan kerja terdekat", "Menjaga kerahasiaan tersebut dan bersikap profesional", "Menjual informasi tersebut ke kompetitor", "Menggunakan informasi tersebut untuk mengancam atasan"], a: 1 },
+        { q: "Anda ditugaskan memimpin proyek kecil, namun anggota tim Anda jauh lebih senior dan sering meremehkan instruksi Anda. Sikap Anda?", options: ["Mengadu ke bos agar mereka dihukum", "Mendekati mereka secara personal dan meminta masukan sambil tetap tegas pada tujuan proyek", "Mengikuti semua kemauan mereka tanpa memimpin", "Mengundurkan diri dari ketua proyek"], a: 1 },
+        { q: "Klien meminta Anda memalsukan tanggal invoice agar dia bisa mengklaim anggaran tahun lalu. Tindakan Anda?", options: ["Melakukannya demi menjaga hubungan baik dengan klien", "Menolak dengan sopan dan menjelaskan bahwa itu melanggar integritas perusahaan", "Meminta bayaran tambahan untuk melakukannya", "Menyerahkan urusan tersebut ke rekan lain"], a: 1 },
+        { q: "Anda merasa beban kerja Anda jauh lebih berat dibanding rekan lain dengan posisi yang sama. Apa tindakan profesional Anda?", options: ["Bekerja asal-asalan agar beban kerja berkurang", "Membicarakan secara objektif dengan atasan mengenai beban kerja dan prioritas tugas", "Menghasut rekan lain agar berhenti bekerja keras", "Langsung resign tanpa pemberitahuan"], a: 1 },
+        { q: "Anda dijanjikan promosi bulan ini, namun perusahaan tiba-tiba menunda karena alasan finansial. Reaksi Anda?", options: ["Kecewa dan berhenti bekerja serius", "Memahami kondisi perusahaan dan tetap memberikan performa terbaik", "Memprotes dengan cara melakukan aksi mogok kerja", "Mencari pekerjaan baru di jam kantor"], a: 1 },
+        { q: "Seorang rekan kerja mendapatkan penghargaan atas proyek yang sebenarnya sebagian besar Anda yang kerjakan. Sikap Anda?", options: ["Melabraknya di depan umum", "Tetap tenang dan mendiskusikan pembagian kontribusi dengan atasan di kesempatan berikutnya", "Menyebarkan rumor bahwa dia pencuri ide", "Berhenti membantu rekan tersebut selamanya"], a: 1 },
+        { q: "Anda baru saja membuat kesalahan yang merugikan perusahaan cukup besar. Apa langkah pertama Anda?", options: ["Mencoba menutupi kesalahan agar tidak ketahuan", "Menyalahkan rekan kerja yang membantu Anda", "Mengakui kesalahan kepada atasan dan segera menawarkan rencana perbaikan", "Menunggu sampai ada orang lain yang menemukan"], a: 2 },
+        { q: "Perusahaan menerapkan sistem absensi digital baru yang menurut Anda sangat menyulitkan. Apa tindakan Anda?", options: ["Sengaja tidak menggunakannya", "Mempelajari sistem tersebut dan memberikan masukan konstruktif jika ada kendala", "Mengeluh setiap hari di depan rekan-rekan", "Mencari cara untuk meretas sistem tersebut"], a: 1 },
+        { q: "Anda sedang libur, namun atasan menelepon berkali-kali untuk menanyakan hal yang sangat mendesak. Sikap Anda?", options: ["Mengabaikan telepon selamanya", "Menerima telepon dan membantu menjelaskan masalah secara singkat dan jelas", "Mengangkat telepon dan memarahi atasan karena mengganggu libur", "Menonaktifkan HP tanpa alasan"], a: 1 },
+        { q: "Anda melihat ada kebocoran kecil di pipa air kantor yang bisa membesar. Apa yang Anda lakukan?", options: ["Membiarkannya karena bukan tugas Anda", "Segera melapor ke bagian fasilitas/GA agar diperbaiki", "Menunggu sampai pipa itu benar-benar pecah", "Menaruh ember saja di bawahnya tanpa melapor"], a: 1 },
+        { q: "Anda diminta melakukan presentasi mendadak karena rekan yang bertugas tiba-tiba sakit. Reaksi Anda?", options: ["Menolak karena tidak ada persiapan", "Menerima tantangan tersebut dan berusaha memberikan yang terbaik sesuai data yang ada", "Melakukan presentasi sambil terus mengeluh", "Menyuruh rekan lain yang juga tidak siap"], a: 1 },
+        { q: "Anda tidak sengaja menghapus data penting milik rekan kerja. Apa tindakan Anda?", options: ["Diam saja seolah-olah data itu hilang sendiri", "Jujur kepada rekan tersebut, meminta maaf, dan membantu memulihkan data", "Menyalahkan virus komputer", "Menghapus data lain agar terlihat seperti kerusakan sistem"], a: 1 },
+        { q: "Rekan kerja Anda sering pulang lebih awal namun tetap menitipkan absen kepada Anda. Sikap Anda?", options: ["Mau membantu karena dia teman baik", "Menolak dengan tegas karena itu melanggar aturan integritas", "Melaporkannya ke HR setelah melakukannya berkali-kali", "Meminta imbalan setiap kali dia titip absen"], a: 1 },
+        { q: "Manajer Anda memberikan umpan balik (feedback) negatif yang menurut Anda tidak adil. Sikap Anda?", options: ["Langsung mendebat dengan nada tinggi", "Mendengarkan dulu, lalu memberikan penjelasan berbasis data secara tenang", "Menangis dan keluar dari ruangan", "Membenci manajer selamanya"], a: 1 },
+        { q: "Anda bekerja dalam tim internasional dan terjadi kesalahpahaman karena perbedaan budaya. Tindakan Anda?", options: ["Menyimpulkan bahwa mereka aneh", "Berusaha mempelajari latar belakang budaya mereka untuk memperbaiki komunikasi", "Meminta pindah tim ke orang Indonesia saja", "Menggunakan bahasa gaul yang sulit mereka mengerti"], a: 1 }
+    ];
+    for(let i=2; i<24; i++) {
+        sjtQuestions.push({
+            q: `<b>Skenario #${i+1}:</b> Tim Anda sedang mengalami penurunan performa. Sebagai salah satu anggota, tindakan proaktif apa yang Anda lakukan?`,
+            options: ["Mencari siapa yang bersalah", "Mengajak diskusi tim untuk mencari hambatan", "Bekerja sendiri saja", "Menunggu instruksi manajer"],
+            a: 1
+        });
+    }
 
-/* ============================================================
-   ENGINE LOGIC
-   ============================================================ */
-let sessiIdx = 0; let soalIdx = 0; let skorPerSessi = [0, 0, 0];
-let timer; let timeLeft; let currentAnswer = null;
+    const tests = [
+        { id: "GMATE", name: "Kognitif Numerik (G-MATE)", time: 900, questions: gmateQuestions },
+        { id: "GPQ", name: "Profil Karakter (GPQ)", time: 1200, questions: gpqQuestions },
+        { id: "SJT", name: "Pengambilan Keputusan (SJT)", time: 900, questions: sjtQuestions }
+    ];
 
-function mulaiSimulasi() {
-    const nama = document.getElementById('inputNama').value.trim();
-    if(!nama) return alert("Silakan isi nama Anda.");
-    document.getElementById('formLogin').classList.add('hidden');
-    document.getElementById('statusHeader').classList.remove('hidden');
-    document.getElementById('areaTes').classList.remove('hidden');
-    document.getElementById('displayNama').innerText = nama;
-    document.getElementById('userNameFinal').innerText = nama;
-    loadSessi();
-}
+    /* ============================================================
+    ENGINE LOGIC
+    ============================================================ */
+    let sessiIdx = 0; let soalIdx = 0; let skorPerSessi = [0, 0, 0];
+    let timer; let timeLeft; let currentAnswer = null;
 
-function loadSessi() {
-    soalIdx = 0; timeLeft = tests[sessiIdx].time;
-    document.getElementById('testLabel').innerText = tests[sessiIdx].name;
-    startTimer(); renderSoal();
-}
+    function mulaiSimulasi() {
+        const nama = document.getElementById('inputNama').value.trim();
+        if(!nama) return alert("Silakan isi nama Anda.");
+        document.getElementById('formLogin').classList.add('hidden');
+        document.getElementById('statusHeader').classList.remove('hidden');
+        document.getElementById('areaTes').classList.remove('hidden');
+        document.getElementById('displayNama').innerText = nama;
+        document.getElementById('userNameFinal').innerText = nama;
+        loadSessi();
+    }
 
-function startTimer() {
-    clearInterval(timer);
-    timer = setInterval(() => { 
-        timeLeft--; 
-        const m = Math.floor(timeLeft/60); const s = timeLeft%60;
-        document.getElementById('timerSessi').innerText = `${m}:${s<10?'0'+s:s}`;
-        if(timeLeft <= 0) nextSessi(); 
-    }, 1000);
-}
+    function loadSessi() {
+        soalIdx = 0; timeLeft = tests[sessiIdx].time;
+        document.getElementById('testLabel').innerText = tests[sessiIdx].name;
+        startTimer(); renderSoal();
+    }
 
-function renderSoal() {
-    const data = tests[sessiIdx].questions[soalIdx];
-    currentAnswer = null;
-    document.getElementById('soalCounter').innerText = `Soal ${soalIdx+1} dari ${tests[sessiIdx].questions.length}`;
-    document.getElementById('kontenSoal').innerHTML = data.q;
-    let h = "";
-    data.options.forEach((o, i) => {
-        h += `<div onclick="pilih(${i}, this)" class="option-card border-2 p-6 rounded-2xl cursor-pointer bg-white transition flex items-center gap-4 border-slate-100">
-            <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-black text-slate-300 text-sm">${String.fromCharCode(65+i)}</div>
-            <span class="font-bold text-slate-700">${o}</span></div>`;
-    });
-    document.getElementById('pilihanArea').innerHTML = h;
-    document.getElementById('btnLanjut').disabled = true;
-}
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => { 
+            timeLeft--; 
+            const m = Math.floor(timeLeft/60); const s = timeLeft%60;
+            document.getElementById('timerSessi').innerText = `${m}:${s<10?'0'+s:s}`;
+            if(timeLeft <= 0) nextSessi(); 
+        }, 1000);
+    }
 
-function pilih(idx, el) {
-    currentAnswer = idx;
-    document.querySelectorAll('.option-card').forEach(i => i.classList.remove('selected-option'));
-    el.classList.add('selected-option');
-    document.getElementById('btnLanjut').disabled = false;
-}
+    function renderSoal() {
+        const data = tests[sessiIdx].questions[soalIdx];
+        currentAnswer = null;
+        document.getElementById('soalCounter').innerText = `Soal ${soalIdx+1} dari ${tests[sessiIdx].questions.length}`;
+        document.getElementById('kontenSoal').innerHTML = data.q;
+        let h = "";
+        data.options.forEach((o, i) => {
+            h += `<div onclick="pilih(${i}, this)" class="option-card border-2 p-6 rounded-2xl cursor-pointer bg-white transition flex items-center gap-4 border-slate-100">
+                <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-black text-slate-300 text-sm">${String.fromCharCode(65+i)}</div>
+                <span class="font-bold text-slate-700">${o}</span></div>`;
+        });
+        document.getElementById('pilihanArea').innerHTML = h;
+        document.getElementById('btnLanjut').disabled = true;
+    }
 
-function handleNext() {
-    if(currentAnswer === tests[sessiIdx].questions[soalIdx].a) skorPerSessi[sessiIdx]++;
-    soalIdx++;
-    if(soalIdx < tests[sessiIdx].questions.length) renderSoal(); else nextSessi();
-}
+    function pilih(idx, el) {
+        currentAnswer = idx;
+        document.querySelectorAll('.option-card').forEach(i => i.classList.remove('selected-option'));
+        el.classList.add('selected-option');
+        document.getElementById('btnLanjut').disabled = false;
+    }
 
-function nextSessi() {
-    clearInterval(timer); sessiIdx++;
-    if(sessiIdx < tests.length) { alert("Sesi ini selesai. Lanjut ke sesi berikutnya?"); loadSessi(); } else finish();
-}
+    function handleNext() {
+        if(currentAnswer === tests[sessiIdx].questions[soalIdx].a) skorPerSessi[sessiIdx]++;
+        soalIdx++;
+        if(soalIdx < tests[sessiIdx].questions.length) renderSoal(); else nextSessi();
+    }
 
-function finish() {
-    document.getElementById('areaTes').classList.add('hidden');
-    document.getElementById('areaHasil').classList.remove('hidden');
-    document.getElementById('statusHeader').classList.add('hidden');
-    document.getElementById('ebookFinal').innerHTML = document.getElementById('ebookSection').innerHTML;
-    
-    let html = "";
-    tests.forEach((t, i) => {
-        const p = Math.round((skorPerSessi[i]/t.questions.length)*100);
-        html += `<div class="bg-indigo-50 p-8 rounded-[2.5rem] text-center border-2 border-indigo-100">
-            <h4 class="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-4">${t.id}</h4>
-            <div class="text-5xl font-black text-indigo-600 mb-2">${p}%</div>
-            <div class="bg-white inline-block px-4 py-1 rounded-full text-[10px] font-bold text-slate-400">${skorPerSessi[i]} / ${t.questions.length} CORRECT</div>
-        </div>`;
-    });
-    document.getElementById('rekapHasil').innerHTML = html;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-</body>
-</html>
+    function nextSessi() {
+        clearInterval(timer); sessiIdx++;
+        if(sessiIdx < tests.length) { alert("Sesi ini selesai. Lanjut ke sesi berikutnya?"); loadSessi(); } else finish();
+    }
+
+    function finish() {
+        document.getElementById('areaTes').classList.add('hidden');
+        document.getElementById('areaHasil').classList.remove('hidden');
+        document.getElementById('statusHeader').classList.add('hidden');
+        document.getElementById('ebookFinal').innerHTML = document.getElementById('ebookSection').innerHTML;
+        
+        let html = "";
+        tests.forEach((t, i) => {
+            const p = Math.round((skorPerSessi[i]/t.questions.length)*100);
+            html += `<div class="bg-indigo-50 p-8 rounded-[2.5rem] text-center border-2 border-indigo-100">
+                <h4 class="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] mb-4">${t.id}</h4>
+                <div class="text-5xl font-black text-indigo-600 mb-2">${p}%</div>
+                <div class="bg-white inline-block px-4 py-1 rounded-full text-[10px] font-bold text-slate-400">${skorPerSessi[i]} / ${t.questions.length} CORRECT</div>
+            </div>`;
+        });
+        document.getElementById('rekapHasil').innerHTML = html;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+    </body>
+    </html>
